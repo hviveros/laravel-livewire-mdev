@@ -43,6 +43,9 @@ class PostAdd extends Component
         Post::create($validated);
 
         $this->reset(['title', 'content']);
+
+        // Después de guardar, y resetear el fomulario, que se dispare el siguiente evento:
+        $this->dispatch('post-created');
  
         // return redirect()->to('/');
     }
